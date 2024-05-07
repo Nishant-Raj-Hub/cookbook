@@ -1,11 +1,24 @@
 import React, { useState, useEffect } from "react";
 import RecipeCard from "./RecipeCard";
 import items from "./items";
+import Navbar from "./Navbar";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("pizza");
   const [loading, setLoading] = useState(true);
   const [recipes, setRecipes] = useState([]);
+
+  const navigator = useNavigate();
+  useEffect(() => {
+    const data = localStorage.getItem("userDetails");
+    if (!data) {
+      navigator("/login");
+      toast.error("please login/register");
+    }
+  });
 
   let API = "https://forkify-api.herokuapp.com/api/search";
 
@@ -20,13 +33,27 @@ const HomePage = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    const fun = async () => {
+      try {
+        const res = await axios.get("http://localhost:8000");
+        console.log(res);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fun();
+  });
   useEffect(() => {
     // Fetching recipes from given API
+
     fetchRecipes(`${API}?q=${searchQuery}`);
   }, [searchQuery]); // get new data whenever searchQuery will be changed
 
   return (
     <>
+      <Navbar />
       {loading ? (
         <div
           style={{
