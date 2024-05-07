@@ -15,8 +15,15 @@ const CreateRecipe = () => {
     loading: false,
     options: [
       { name: "carrot", id: 1 },
-      { name: "pizza", id: 2 },
-    ], // Options for the multiselect dropdown
+      { name: "Milk", id: 2 },
+      { name: "Cheese", id: 3 },
+      { name: "Potato", id: 4 },
+      { name: "Spinach", id: 5 },
+      { name: "Mushroom", id: 6 },
+      { name: "Tomato", id: 7 },
+      { name: "Garlic", id: 8 },
+      { name: "Onion", id: 9},
+    ], // Options for the ingredients
   });
 
   const navigate = useNavigate();

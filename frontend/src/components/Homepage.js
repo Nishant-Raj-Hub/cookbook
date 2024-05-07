@@ -34,17 +34,7 @@ const HomePage = () => {
     }
   };
 
-  useEffect(() => {
-    const fun = async () => {
-      try {
-        const res = await axios.get("http://localhost:8000");
-        console.log(res);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fun();
-  });
+  
   useEffect(() => {
     // Fetching recipes from given API
 
