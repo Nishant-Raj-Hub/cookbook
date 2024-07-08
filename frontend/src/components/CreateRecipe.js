@@ -58,7 +58,7 @@ const CreateRecipe = () => {
     });
 
     try {
-      const res = await axios.post("http://localhost:8000/api/recipe/create", {
+      const res = await axios.post("https://cookbook-2kgp.onrender.com/api/recipe/create", {
         ...config,
         _id: data._id,
       });

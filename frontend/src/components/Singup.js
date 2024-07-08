@@ -39,7 +39,7 @@ const Singup = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/user/create",
+        "https://cookbook-2kgp.onrender.com/api/user/create",
         config
       );
 

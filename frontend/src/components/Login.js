@@ -37,7 +37,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/user/login",
+        "https://cookbook-2kgp.onrender.com/api/user/login",
         config
       );
 
